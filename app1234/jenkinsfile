@@ -14,18 +14,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building project'
-                dir('app1234') {
-                    bat 'mvn clean compile'
-                }
+                bat 'mvn -f app1234\pom.xml clean compile'
             }
         }
 
         stage('Run Selenium Test') {
             steps {
                 echo 'Running Selenium test'
-                dir('app1234') {
-                    bat 'mvn exec:java'
-                }
+                bat 'mvn test'
             }
         }
 
