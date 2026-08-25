@@ -14,17 +14,20 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building project'
-                bat 'mvn clean compile'
+                dir('app1234') {
+                    bat 'mvn clean compile'
+                }
             }
         }
 
         stage('Run Selenium Tests') {
             steps {
                 echo 'Running Selenium tests'
-                bat 'mvn test'
+                dir('app1234') {
+                    bat 'mvn test'
+                }
             }
         }
 
     }
-
 }
