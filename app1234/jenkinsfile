@@ -20,11 +20,11 @@ pipeline {
             }
         }
 
-        stage('Run Selenium Tests') {
+        stage('Run Selenium Test') {
             steps {
-                echo 'Running Selenium tests'
+                echo 'Running Selenium test'
                 dir('app1234') {
-                    bat 'mvn test'
+                    bat 'mvn exec:java'
                 }
             }
         }
